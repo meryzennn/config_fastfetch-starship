@@ -32,21 +32,91 @@ Fastfetch uses a configuration file called `config.jsonc`. Here’s how to creat
 
   ```jsonc
   {
-      // General Settings
-      "theme": "Dark",
-      "show": {
-          "os": true,
-          "host": true,
-          "uptime": true,
-          "packages": true,
-          "shell": true
-      },
-      "colors": {
-          "text": "#FFFFFF",
-          "background": "#000000",
-          "highlight": "#FF00FF"
-      }
-  }
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "type": "builtin",
+        "color": {
+            "1": "white",
+            "2": "cyan"
+        }
+    },
+    "display": {
+        "separator": " → ",
+        "color": "cyan"
+    },
+    "modules": [
+        {
+            "type": "custom", // HardwareStart
+            "format": "┌─────────── \u001b[1mHardware Information\u001b[0m ───────────┐" // \u001b is \033, or \e
+        },
+        {
+            "type": "host",
+            "key": "  󰌢"
+        },
+        {
+            "type": "cpu",
+            "key": "  "
+        },
+        {
+            "type": "gpu",
+            "detectionMethod": "pci",
+            "key": "  "
+        },
+        {
+            "type": "display",
+            "key": "  󱄄"
+        },
+        {
+            "type": "memory",
+            "key": "  "
+        },
+        {
+            "type": "custom", // SoftwareStart
+            "format": "├─────────── \u001b[1mSoftware Information\u001b[0m ───────────┤"
+        },
+        {
+            "type": "os",
+            "key": "  " // Just get your distro's logo off nerdfonts.com,
+        },
+        {
+            "type": "kernel",
+            "key": "  ",
+            "format": "{1} {2}"
+        },
+        {
+            "type": "wm",
+            "key": "  "
+        },
+        {
+            "type": "shell",
+            "key": "  "
+        },
+        {
+            "type": "custom",
+            "format": "|──────────────\u001b[1mUptime / Age\u001b[0m──────────────────|"
+        },
+        {
+            "type": "command",
+            "key": "  OS Age ",
+            "keyColor": "magenta",
+            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+        },
+        {
+            "type": "uptime",
+            "key": "  Uptime ",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "custom", // InformationEnd
+            "format": "└────────────────────────────────────────────┘"
+        },
+        {
+            "type": "colors",
+            "paddingLeft": 2,
+            "symbol": "circle"
+        }
+    ]
+}
   ```
 
 - **Explanation**:
@@ -72,15 +142,140 @@ Starship uses a configuration file called `starship.toml`. Create this file in y
 
   ```toml
   # starship.toml
-  [character]
-  success_symbol = "[❯](bold green)"
-  error_symbol = "[❯](bold red)"
+  [bun]
+  format = "via [$symbol]($style)"
 
-  [directory]
-  style = "cyan"
+  [buf]
+  format = "via [$symbol]($style)"
+  
+  [cmake]
+  format = "via [$symbol]($style)"
+  
+  [cobol]
+  format = "via [$symbol]($style)"
+  
+  [crystal]
+  format = "via [$symbol]($style)"
+  
+  [daml]
+  format = "via [$symbol]($style)"
+  
+  [dart]
+  format = "via [$symbol]($style)"
+  
+  [deno]
+  format = "via [$symbol]($style)"
+  
+  [dotnet]
+  format = "[$symbol(🎯 $tfm )]($style)"
+  
+  [elixir]
+  format = 'via [$symbol]($style)'
+  
+  [elm]
+  format = 'via [$symbol]($style)'
+  
+  [erlang]
+  format = 'via [$symbol]($style)'
+  
+  [fennel]
+  format = 'via [$symbol]($style)'
+  
+  [gleam]
+  format = 'via [$symbol]($style)'
+  
+  [golang]
+  format = 'via [$symbol]($style)'
+  
+  [gradle]
+  format = 'via [$symbol]($style)'
+  
+  [haxe]
+  format = 'via [$symbol]($style)'
+  
+  [helm]
+  format = 'via [$symbol]($style)'
+  
+  [java]
+  format = 'via [$symbol]($style)'
+  
+  [julia]
+  format = 'via [$symbol]($style)'
+  
+  [kotlin]
+  format = 'via [$symbol]($style)'
+  
+  [lua]
+  format = 'via [$symbol]($style)'
+  
+  [meson]
+  format = 'via [$symbol]($style)'
+  
+  [nim]
+  format = 'via [$symbol]($style)'
+  
+  [nodejs]
+  format = 'via [$symbol]($style)'
+  
+  [ocaml]
+  format = 'via [$symbol(\($switch_indicator$switch_name\) )]($style)'
+  
+  [opa]
+  format = 'via [$symbol]($style)'
+  
+  [perl]
+  format = 'via [$symbol]($style)'
+  
+  [php]
+  format = 'via [$symbol]($style)'
+  
+  [pulumi]
+  format = 'via [$symbol$stack]($style)'
+  
+  [purescript]
+  format = 'via [$symbol]($style)'
+  
+  [python]
+  format = 'via [$symbol]($style)'
+  
+  [quarto]
+  format = 'via [$symbol]($style)'
+  
+  [raku]
+  format = 'via [$symbol]($style)'
+  
+  [red]
+  format = 'via [$symbol]($style)'
+  
+  [rlang]
+  format = 'via [$symbol]($style)'
+  
+  [ruby]
+  format = 'via [$symbol]($style)'
+  
+  [rust]
+  format = 'via [$symbol]($style)'
+  
+  [solidity]
+  format = 'via [$symbol]($style)'
+  
+  [typst]
+  format = 'via [$symbol]($style)'
+  
+  [swift]
+  format = 'via [$symbol]($style)'
+  
+  [vagrant]
+  format = 'via [$symbol]($style)'
+  
+  [vlang]
+  format = 'via [$symbol]($style)'
+  
+  [zig]
+  format = 'via [$symbol]($style)'
 
-  [git_branch]
-  format = "[$branch](bold blue) "
+
+
   ```
 
 - **Explanation**:
