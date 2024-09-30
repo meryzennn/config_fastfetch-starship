@@ -271,14 +271,6 @@ format = 'via [$symbol]($style)'
 
 ---
 
-## Tips for Writing a Blog
-1. **Use Clear Language**: Ensure that readers can easily follow along with your instructions.
-2. **Include Images or Screenshots**: Visual aids can help illustrate the configuration steps.
-3. **Provide Real-life Examples**: Demonstrate how these configurations can improve productivity in the terminal.
-4. **Encourage Reader Interaction**: Invite readers to share their own configurations in the comments section.
-
----
-
 ## Conclusion
 By following this guide, you can customize your terminal environment with Fastfetch and Starship for a more informative and visually appealing experience. Happy customizing, and feel free to explore different configurations to find what works best for you!
 
