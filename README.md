@@ -1,6 +1,3 @@
-Sure! Here’s a blog post in Markdown format based on your provided Fastfetch and Starship configurations, similar to the first example.
-
-
 # Customizing Your Terminal with Fastfetch and Starship
 
 ## Introduction
