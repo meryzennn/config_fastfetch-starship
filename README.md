@@ -1,5 +1,3 @@
-Sure! Here's the guide formatted in Markdown and written in English.
-
 ```markdown
 # Optimizing Your Shell Configuration with Fastfetch and Starship
 
